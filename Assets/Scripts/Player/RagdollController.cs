@@ -5,28 +5,66 @@ using UnityEngine;
 
 public class RagdollController : MonoBehaviour
 {
-    enum RagdollAnimState
+    public enum RagdollAnimState
     {
         Idle,
+        Jumping,
+        Falling,
         Ragdoll
     }
 
     Rigidbody[] _rbBodyParts;
     Animator _anim;
-    CharacterController _cc;
+    Rigidbody _rb;
+
+    [SerializeField]
     RagdollAnimState _currentState = RagdollAnimState.Idle;
+
+    /*
+    private void OnEnable()
+    {
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.EnableRagdoll, EnableRagdoll);
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.DisableRagdoll, DisableRagdoll);
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.RagdollState, EnableState);
+    }
+
+    private void OnDisable()
+    {
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.EnableRagdoll, EnableRagdoll);
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.DisableRagdoll, DisableRagdoll);
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.RagdollState, EnableState);
+    }
+    /**/
 
     // Start is called before the first frame update
     private void Start()
     {
         Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.EnableRagdoll, EnableRagdoll);
         Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.DisableRagdoll, DisableRagdoll);
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.RagdollState, EnableState);
 
         _rbBodyParts = GetComponentsInChildren<Rigidbody>();
         _anim = GetComponent<Animator>();
-        _cc = GetComponent<CharacterController>();
+        _rb = GetComponent<Rigidbody>();
 
         DisableRagdoll(null);
+        _anim.enabled = true;
+    }
+
+    private void EnableState(Dictionary<string, object> arg0)
+    {
+        _currentState = (RagdollAnimState)arg0["State"];
+        switch (_currentState)
+        {
+            case RagdollAnimState.Idle:
+                _rb.isKinematic = true;
+                _anim.applyRootMotion = true;
+                break;
+            case RagdollAnimState.Falling:
+                _rb.isKinematic = false;
+                _anim.applyRootMotion = false;
+                break;
+        }
     }
 
     private void Update()
@@ -39,6 +77,9 @@ public class RagdollController : MonoBehaviour
             case RagdollAnimState.Ragdoll:
                 RagdollBehaviour();
                 break;
+            case RagdollAnimState.Falling:
+                FallingBehaviour();
+                break;
         }
     }
 
@@ -49,9 +90,7 @@ public class RagdollController : MonoBehaviour
             rb.isKinematic = true;
         }
         _anim.enabled = true;
-        _cc.enabled = true;
-
-        _currentState = RagdollAnimState.Idle;
+        _currentState = RagdollAnimState.Falling;
     }
 
     private void EnableRagdoll(Dictionary<string, object> arg0)
@@ -61,8 +100,6 @@ public class RagdollController : MonoBehaviour
             rb.isKinematic = false;
         }
         _anim.enabled = false;
-        _cc.enabled = false;
-
         _currentState = RagdollAnimState.Ragdoll;
     }
 
@@ -70,8 +107,7 @@ public class RagdollController : MonoBehaviour
     {
         if (Kaideu.Input.InputManager.Instance.Controls.Player.Space.WasPressedThisFrame())
         {
-            //EnableRagdoll(null);
-            _anim.SetBool("Falling", true);
+            _anim.SetBool("Jumped", true);
         }
     }
 
@@ -80,6 +116,15 @@ public class RagdollController : MonoBehaviour
         if (Kaideu.Input.InputManager.Instance.Controls.Player.Space.WasPressedThisFrame())
         {
             DisableRagdoll(null);
+        }
+    }
+
+    private void FallingBehaviour()
+    {
+
+        if (Kaideu.Input.InputManager.Instance.Controls.Player.Space.WasPressedThisFrame())
+        {
+            EnableRagdoll(null);
         }
     }
 

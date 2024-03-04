@@ -10,7 +10,8 @@ namespace Kaideu.Events
         CollectItem,
         EnableRagdoll,
         DisableRagdoll,
-        UI
+        UI,
+        RagdollState
     }
 
     public class EventManager : Utils.SingletonPattern<EventManager>

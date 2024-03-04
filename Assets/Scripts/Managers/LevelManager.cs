@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     private void EndLevel(Dictionary<string, object> arg0)
     {
         Debug.LogError("Level Ended");
+        InputManager.Instance.ToggleControls(false);
         //EventManager.Instance.TriggerEvent(Events.UI, )
         //Reset Level numbers, positions, camera, etc as needed
     }
