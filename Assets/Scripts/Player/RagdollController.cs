@@ -20,35 +20,44 @@ public class RagdollController : MonoBehaviour
     [SerializeField]
     RagdollAnimState _currentState = RagdollAnimState.Idle;
 
-    /*
+
     private void OnEnable()
     {
-        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.EnableRagdoll, EnableRagdoll);
-        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.DisableRagdoll, DisableRagdoll);
-        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.RagdollState, EnableState);
+        ListenToEvents();
     }
 
     private void OnDisable()
     {
-        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.EnableRagdoll, EnableRagdoll);
-        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.DisableRagdoll, DisableRagdoll);
-        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.RagdollState, EnableState);
+        DontListenToEvents();
     }
-    /**/
 
     // Start is called before the first frame update
     private void Start()
     {
-        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.EnableRagdoll, EnableRagdoll);
-        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.DisableRagdoll, DisableRagdoll);
-        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.RagdollState, EnableState);
+        //ListenToEvents();
 
         _rbBodyParts = GetComponentsInChildren<Rigidbody>();
         _anim = GetComponent<Animator>();
-        _rb = GetComponent<Rigidbody>();
+        //_rb = GetComponent<Rigidbody>();
 
         DisableRagdoll(null);
         _anim.enabled = true;
+    }
+
+    void ListenToEvents()
+    {
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.EnableRagdoll, EnableRagdoll);
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.DisableRagdoll, DisableRagdoll);
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.RagdollState, EnableState);
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.EndLevel, ResetRagdoll); //change to hit ground for end level ui
+    }
+
+    void DontListenToEvents()
+    {
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.EnableRagdoll, EnableRagdoll);
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.DisableRagdoll, DisableRagdoll);
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.RagdollState, EnableState);
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.EndLevel, ResetRagdoll); //change to hit ground for end level ui
     }
 
     private void EnableState(Dictionary<string, object> arg0)
@@ -57,11 +66,11 @@ public class RagdollController : MonoBehaviour
         switch (_currentState)
         {
             case RagdollAnimState.Idle:
-                _rb.isKinematic = true;
+                //_rb.isKinematic = true;
                 _anim.applyRootMotion = true;
                 break;
             case RagdollAnimState.Falling:
-                _rb.isKinematic = false;
+                //_rb.isKinematic = false;
                 _anim.applyRootMotion = false;
                 break;
         }
@@ -107,8 +116,9 @@ public class RagdollController : MonoBehaviour
     {
         if (Kaideu.Input.InputManager.Instance.Controls.Player.Space.WasPressedThisFrame())
         {
-            _anim.SetBool("Jumped", true);
+            _anim.SetTrigger("Jumped");
         }
+        //_rb.isKinematic = true;
     }
 
     private void RagdollBehaviour()
@@ -126,6 +136,17 @@ public class RagdollController : MonoBehaviour
         {
             EnableRagdoll(null);
         }
+        //_rb.isKinematic = false;
+    }
+
+    private void ResetRagdoll(Dictionary<string, object> arg0)
+    {
+        DisableRagdoll(null);
+        //_rb.isKinematic = true;
+        _anim.SetTrigger("Reset");
+        _anim.Rebind();
+        _anim.Update(0f);
+        _anim.enabled = true;
     }
 
 
