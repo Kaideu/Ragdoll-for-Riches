@@ -40,8 +40,8 @@ public class LevelManager : Kaideu.Utils.SingletonPattern<LevelManager>
     {
 
         Player.transform.position = _startPosition.position;
-        cmvc.Follow = Player.GetComponentInChildren<ListenForGround>().transform;
-        cmvc.LookAt = Player.GetComponentInChildren<ListenForGround>().transform;
+        cmvc.Follow = Player.transform;
+        cmvc.LookAt = Player.transform;
 
         Kaideu.UI.UIHandler.Instance.ShowUI("MainMenu");
 
@@ -55,6 +55,9 @@ public class LevelManager : Kaideu.Utils.SingletonPattern<LevelManager>
         Player.transform.position = _startPosition.position;
         cmvc.Follow = Player.transform;
         cmvc.LookAt = Player.transform;
+
+
+        Kaideu.UI.UIHandler.Instance.ShowUI("MainMenu");
 
         //EventManager.Instance.TriggerEvent(Events.UI, )
         //Reset Level numbers, positions, camera, etc as needed

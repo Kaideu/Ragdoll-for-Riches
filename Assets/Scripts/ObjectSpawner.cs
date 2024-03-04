@@ -27,7 +27,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         var canSpawn = Time.time >= _nextSpawnTime && playerRef.position.y > _verticalSpawnDistance * 2;
 
-        if ((InputManager.Instance.Controls.Player.Space.WasPressedThisFrame() && debugging)|| ( !debugging && canSpawn && _objs.Length > 0))
+        if ((InputManager.Instance.Controls.Player.Interact.WasPressedThisFrame() && debugging)|| ( !debugging && canSpawn && _objs.Length > 0))
         {
             SpawnObject();
             DetirmineNextSpawnTime();

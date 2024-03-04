@@ -16,6 +16,7 @@ public class RagdollController : MonoBehaviour
     Rigidbody[] _rbBodyParts;
     Animator _anim;
     Rigidbody _rb;
+    Rigidbody _hrb;
 
     [SerializeField]
     RagdollAnimState _currentState = RagdollAnimState.Idle;
@@ -38,7 +39,8 @@ public class RagdollController : MonoBehaviour
 
         _rbBodyParts = GetComponentsInChildren<Rigidbody>();
         _anim = GetComponent<Animator>();
-        //_rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
+        _hrb = GetComponentInChildren<ListenForGround>().GetComponent<Rigidbody>();
 
         DisableRagdoll(null);
         _anim.enabled = true;
@@ -50,6 +52,7 @@ public class RagdollController : MonoBehaviour
         Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.DisableRagdoll, DisableRagdoll);
         Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.RagdollState, EnableState);
         Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.EndLevel, ResetRagdoll); //change to hit ground for end level ui
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.StartLevel, Jump);
     }
 
     void DontListenToEvents()
@@ -58,7 +61,10 @@ public class RagdollController : MonoBehaviour
         Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.DisableRagdoll, DisableRagdoll);
         Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.RagdollState, EnableState);
         Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.EndLevel, ResetRagdoll); //change to hit ground for end level ui
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.StartLevel, Jump);
     }
+
+    private void Jump(Dictionary<string, object> arg0) => _anim.SetTrigger("Jumped");
 
     private void EnableState(Dictionary<string, object> arg0)
     {
@@ -66,11 +72,13 @@ public class RagdollController : MonoBehaviour
         switch (_currentState)
         {
             case RagdollAnimState.Idle:
-                //_rb.isKinematic = true;
+                _rb.isKinematic = true;
                 _anim.applyRootMotion = true;
+                _anim.ResetTrigger("Reset");
+                _anim.ResetTrigger("Jump");
                 break;
             case RagdollAnimState.Falling:
-                //_rb.isKinematic = false;
+                _rb.isKinematic = false;
                 _anim.applyRootMotion = false;
                 break;
         }
@@ -78,6 +86,7 @@ public class RagdollController : MonoBehaviour
 
     private void Update()
     {
+
         switch (_currentState)
         {
             case RagdollAnimState.Idle:
@@ -116,37 +125,39 @@ public class RagdollController : MonoBehaviour
     {
         if (Kaideu.Input.InputManager.Instance.Controls.Player.Space.WasPressedThisFrame())
         {
-            _anim.SetTrigger("Jumped");
+            //_anim.SetTrigger("Jumped");
         }
-        //_rb.isKinematic = true;
+        _rb.isKinematic = true;
     }
 
     private void RagdollBehaviour()
     {
-        if (Kaideu.Input.InputManager.Instance.Controls.Player.Space.WasPressedThisFrame())
+        if (Kaideu.Input.InputManager.Instance.Controls.Player.Ragdoll.WasPressedThisFrame())
         {
             DisableRagdoll(null);
         }
+        _rb.velocity = _hrb.velocity;
     }
 
     private void FallingBehaviour()
     {
 
-        if (Kaideu.Input.InputManager.Instance.Controls.Player.Space.WasPressedThisFrame())
+        if (Kaideu.Input.InputManager.Instance.Controls.Player.Ragdoll.WasPressedThisFrame())
         {
             EnableRagdoll(null);
         }
-        //_rb.isKinematic = false;
+        _rb.isKinematic = false;
     }
 
     private void ResetRagdoll(Dictionary<string, object> arg0)
     {
-        DisableRagdoll(null);
-        //_rb.isKinematic = true;
-        _anim.SetTrigger("Reset");
         _anim.Rebind();
-        _anim.Update(0f);
         _anim.enabled = true;
+        _rb.isKinematic = true;
+        _anim.SetTrigger("Reset");
+        _anim.Update(0f);
+        DisableRagdoll(null);
+        _currentState = RagdollAnimState.Idle;
     }
 
 

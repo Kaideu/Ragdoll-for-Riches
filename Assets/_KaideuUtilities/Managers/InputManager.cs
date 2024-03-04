@@ -17,7 +17,7 @@ namespace Kaideu.Input
             ToggleControls(false);
 
             //Set keep a list of all action maps in action asset
-            _actionMaps = new InputActionMap[] { Controls.UI };
+            _actionMaps = new InputActionMap[] { Controls.UI, Controls.Player };
         }
 
         public void ToggleControls(bool isEnabled)
@@ -34,6 +34,7 @@ namespace Kaideu.Input
                 map.Disable();
 
             actionMapName.Enable();
+
             print($"Current ActionMap: {actionMapName.name}");
         }
     }
