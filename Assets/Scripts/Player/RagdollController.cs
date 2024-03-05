@@ -103,6 +103,7 @@ public class RagdollController : MonoBehaviour
 
     private void DisableRagdoll(Dictionary<string, object> arg0)
     {
+        _rb.velocity = _hrb.velocity;
         foreach (var rb in _rbBodyParts)
         {
             rb.isKinematic = true;
@@ -116,6 +117,7 @@ public class RagdollController : MonoBehaviour
         foreach (var rb in _rbBodyParts)
         {
             rb.isKinematic = false;
+            rb.velocity = _rb.velocity;
         }
         _anim.enabled = false;
         _currentState = RagdollAnimState.Ragdoll;
