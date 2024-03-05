@@ -325,6 +325,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2148402172228999554, guid: c763385fac1d1d34c8b3806eb2d17072, type: 3}
+      propertyPath: _currentState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3586893254319015870, guid: c763385fac1d1d34c8b3806eb2d17072, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -911,6 +915,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845bb1bdc9c8bf248a372410ae9824e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doesPersist: 1
+  _playerPrefab: {fileID: 0}
+  _startPosition: {fileID: 0}
+  cmvc: {fileID: 0}
 --- !u!4 &752082498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 47908080575691277, guid: c763385fac1d1d34c8b3806eb2d17072, type: 3}
@@ -1643,6 +1651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1317133979}
   - component: {fileID: 1317133978}
+  - component: {fileID: 1317133980}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -1663,7 +1672,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doesPersist: 1
-  debug: 1
+  _debug: 1
+  _currentBalance: 0
 --- !u!4 &1317133979
 Transform:
   m_ObjectHideFlags: 0
@@ -1679,6 +1689,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1317133980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317133977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06512b721a1ec047b21958eb48408ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentBalance: 0
 --- !u!4 &1343397986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1883563753106334816, guid: c763385fac1d1d34c8b3806eb2d17072, type: 3}

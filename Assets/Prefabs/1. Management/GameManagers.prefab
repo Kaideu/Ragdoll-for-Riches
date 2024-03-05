@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doesPersist: 1
-  debug: 1
+  _debug: 0
