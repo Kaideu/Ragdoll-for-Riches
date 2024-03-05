@@ -9,8 +9,6 @@ public class ObjectSpawner : MonoBehaviour
     bool debugging = false;
 
     [SerializeField]
-    Transform playerRef;
-    [SerializeField]
     GameObject[] _objs;
     [SerializeField]
     float _verticalSpawnDistance = 100;
@@ -18,6 +16,7 @@ public class ObjectSpawner : MonoBehaviour
     Vector2 _horizontalSpawnDistRange = new(0, 10);
     [SerializeField]
     Vector2 _spawnTimeRange = new(1, 3);
+    Transform playerRef => LevelManager.Instance.Player.transform;
 
     float _nextSpawnTime;
 

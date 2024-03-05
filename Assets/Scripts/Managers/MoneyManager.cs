@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoneyManager : MonoBehaviour
+public class MoneyManager : Kaideu.Utils.SingletonPattern<MoneyManager>
 {
 
     public int _currentBalance = 0;
@@ -11,9 +11,12 @@ public class MoneyManager : MonoBehaviour
     LayerMask obstacle;
     [SerializeField]
     LayerMask groundLayer;
-    private void Awake() {
+
+    private void Start()
+    {
         _collectedBalance = 0;
     }
+
     public void UpdateMoney(int collectedMoney){
         _currentBalance += collectedMoney;
         Debug.Log(_currentBalance);
@@ -22,7 +25,7 @@ public class MoneyManager : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == obstacle){
+        if(Kaideu.Utils.Helpers.IsInLayerMask(obstacle, other.gameObject.layer)){
             _collectedBalance += 200;
             Debug.Log(_collectedBalance);
         }

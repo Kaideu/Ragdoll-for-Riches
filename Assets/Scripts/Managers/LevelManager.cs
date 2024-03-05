@@ -14,6 +14,8 @@ public class LevelManager : Kaideu.Utils.SingletonPattern<LevelManager>
     [SerializeField]
     Cinemachine.CinemachineVirtualCamera cmvc;
 
+    bool hasEnded = false;
+
     //[Header("CinemachineSettings")]
     //[SerializeField]
 
@@ -49,18 +51,21 @@ public class LevelManager : Kaideu.Utils.SingletonPattern<LevelManager>
 
     private void EndLevel(Dictionary<string, object> arg0)
     {
-        Debug.LogError("Level Ended");
-        InputManager.Instance.SwitchTo(InputManager.Instance.Controls.UI);
+        if (!hasEnded)
+        {
+            Debug.LogError("Level Ended");
+            hasEnded = true;
+            InputManager.Instance.SwitchTo(InputManager.Instance.Controls.UI);
 
-        Player.transform.position = _startPosition.position;
-        cmvc.Follow = Player.transform;
-        cmvc.LookAt = Player.transform;
+            Player.transform.position = _startPosition.position;
+            cmvc.Follow = Player.transform;
+            cmvc.LookAt = Player.transform;
 
+            Kaideu.UI.UIHandler.Instance.ShowUI("MainMenu");
 
-        Kaideu.UI.UIHandler.Instance.ShowUI("MainMenu");
-
-        //EventManager.Instance.TriggerEvent(Events.UI, )
-        //Reset Level numbers, positions, camera, etc as needed
+            //EventManager.Instance.TriggerEvent(Events.UI, )
+            //Reset Level numbers, positions, camera, etc as needed
+        }
     }
 
     private void StartLevel(Dictionary<string, object> arg0)
@@ -68,7 +73,7 @@ public class LevelManager : Kaideu.Utils.SingletonPattern<LevelManager>
         InputManager.Instance.ToggleControls(true);
         InputManager.Instance.SwitchTo(InputManager.Instance.Controls.Player);
 
-
+        hasEnded = false;
         //Camera, animations, etc
     }
 }
