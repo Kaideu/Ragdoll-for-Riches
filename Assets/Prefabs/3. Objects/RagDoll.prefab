@@ -1512,6 +1512,7 @@ GameObject:
   - component: {fileID: 2491129558789807713}
   - component: {fileID: 8854713641612790141}
   - component: {fileID: 5831342666424710969}
+  - component: {fileID: 2148402172228999554}
   m_Layer: 3
   m_Name: RagDoll
   m_TagString: Player
@@ -1586,6 +1587,29 @@ MonoBehaviour:
   _rb: {fileID: 5451310499233148538}
   _moveSpeed: 20000
   _input: {x: 0, y: 0}
+--- !u!114 &2148402172228999554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246273281649613459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f81a6d74e36de149a4eeda72d4febec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rbBodyParts:
+  - {fileID: 5451310499233148538}
+  - {fileID: 8214218050084140233}
+  - {fileID: 2146486561696282415}
+  - {fileID: 662808412462949630}
+  - {fileID: 2769250571783065304}
+  - {fileID: 5586942798650717474}
+  - {fileID: 2390154606810129464}
+  - {fileID: 8625617001264000413}
+  - {fileID: 4629572293713975160}
+  - {fileID: 6304346340066502940}
 --- !u!1 &5632584999231268448
 GameObject:
   m_ObjectHideFlags: 0

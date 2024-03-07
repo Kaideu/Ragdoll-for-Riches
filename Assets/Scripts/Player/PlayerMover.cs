@@ -14,12 +14,6 @@ public class PlayerMover : MonoBehaviour
     [SerializeField]
     Vector2 _input;
 
-    private void Start()
-    {
-        InputManager.Instance.ToggleControls(true);
-        InputManager.Instance.SwitchTo(InputManager.Instance.Controls.Player);
-    }
-
     // Update is called once per frame
     void Update()
     {

@@ -9,8 +9,6 @@ public class ObjectSpawner : MonoBehaviour
     bool debugging = false;
 
     [SerializeField]
-    Transform playerRef;
-    [SerializeField]
     GameObject[] _objs;
     [SerializeField]
     float _verticalSpawnDistance = 100;
@@ -18,6 +16,7 @@ public class ObjectSpawner : MonoBehaviour
     Vector2 _horizontalSpawnDistRange = new(0, 10);
     [SerializeField]
     Vector2 _spawnTimeRange = new(1, 3);
+    Transform playerRef => LevelManager.Instance.Player.transform;
 
     float _nextSpawnTime;
 
@@ -27,7 +26,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         var canSpawn = Time.time >= _nextSpawnTime && playerRef.position.y > _verticalSpawnDistance * 2;
 
-        if ((InputManager.Instance.Controls.Player.Space.WasPressedThisFrame() && debugging)|| ( !debugging && canSpawn && _objs.Length > 0))
+        if ((InputManager.Instance.Controls.Player.Interact.WasPressedThisFrame() && debugging)|| ( !debugging && canSpawn && _objs.Length > 0))
         {
             SpawnObject();
             DetirmineNextSpawnTime();

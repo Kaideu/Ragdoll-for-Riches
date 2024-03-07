@@ -5,16 +5,22 @@ namespace Kaideu.Managers
 {
     public class GameManager : Utils.SingletonPattern<GameManager>
     {
-        [SerializeField] private bool debug;
+        [SerializeField] private bool _debug;
+
+        private bool _initialized;
+
         protected override void Awake()
         {
-            base.Awake();
-            SetupManagers();
-            InitializeManagers();
+            if (!_initialized)
+            {
+                base.Awake();
+                SetupManagers();
+                InitializeManagers();
 
-            if (!debug)
-                //Loads index 1. This script should be in index 0
-                SceneLoadManager.Instance.LoadIndex(1);
+                if (!_debug)
+                    //Loads index 1. This script should be in index 0
+                    SceneLoadManager.Instance.LoadIndex(1);
+            }
         }
 
         //Managers are not referenced through the game manager due to managers requirement of being singletons via SingletonPattern<T> inheritance.
