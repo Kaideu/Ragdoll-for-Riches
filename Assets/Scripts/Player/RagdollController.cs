@@ -44,6 +44,7 @@ public class RagdollController : MonoBehaviour
 
         DisableRagdoll(null);
         _anim.enabled = true;
+        _currentState = RagdollAnimState.Idle;
     }
 
     void ListenToEvents()
@@ -53,6 +54,7 @@ public class RagdollController : MonoBehaviour
         Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.RagdollState, EnableState);
         Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.EndLevel, ResetRagdoll); //change to hit ground for end level ui
         Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.StartLevel, Jump);
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.Grounded, CancelVelocity);
     }
 
     void DontListenToEvents()
@@ -62,6 +64,7 @@ public class RagdollController : MonoBehaviour
         Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.RagdollState, EnableState);
         Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.EndLevel, ResetRagdoll); //change to hit ground for end level ui
         Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.StartLevel, Jump);
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.Grounded, CancelVelocity);
     }
 
     private void Jump(Dictionary<string, object> arg0) => _anim.SetTrigger("Jumped");
@@ -143,7 +146,7 @@ public class RagdollController : MonoBehaviour
 
     private void FallingBehaviour()
     {
-
+        EnableRagdoll(null);
         if (Kaideu.Input.InputManager.Instance.Controls.Player.Ragdoll.WasPressedThisFrame())
         {
             EnableRagdoll(null);
@@ -160,6 +163,16 @@ public class RagdollController : MonoBehaviour
         _anim.Update(0f);
         DisableRagdoll(null);
         _currentState = RagdollAnimState.Idle;
+    }
+
+    private void CancelVelocity(Dictionary<string, object> arg0)
+    {
+        foreach (var rb in _rbBodyParts)
+        {
+            rb.velocity = Vector3.zero;
+            _rb.velocity = Vector3.zero;
+            _rb.isKinematic = true;
+        }
     }
 
 

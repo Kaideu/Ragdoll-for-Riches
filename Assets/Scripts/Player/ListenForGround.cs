@@ -15,7 +15,7 @@ public class ListenForGround : MonoBehaviour
         {
             groundHitThisFrame = true;
             Debug.LogWarning("Update 'Safe' condition for velocity check");
-            Kaideu.Events.EventManager.Instance.TriggerEvent(Kaideu.Events.Events.EndLevel, new Dictionary<string, object> { { "Safe", true } });
+            Kaideu.Events.EventManager.Instance.TriggerEvent(Kaideu.Events.Events.Grounded, new Dictionary<string, object> { { "Safe", true } });
             //Kaideu.Events.EventManager.Instance.TriggerEvent(Kaideu.Events.Events.EnableRagdoll, null);
 
             //Destroy(this);
