@@ -19,7 +19,7 @@ public class ListenForGround : MonoBehaviour
             //Kaideu.Events.EventManager.Instance.TriggerEvent(Kaideu.Events.Events.EnableRagdoll, null);
 
             //Destroy(this);
-            MoneyManager.Instance.UpdateMoney(MoneyManager.Instance._collectedBalance);
+            MoneyManager.Instance.UpdateBank(MoneyManager.Instance._collectedBalance);
         }
     }
 
