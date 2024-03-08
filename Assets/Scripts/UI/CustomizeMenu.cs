@@ -78,7 +78,7 @@ public class CustomizeMenu : MonoBehaviour
     {
         Item item = items[currItemIndex];
         if (item.purchased) return;
-        if (MoneyManager.Instance.UpdateBalance(item.value)) item.purchased = true;
+        if (MoneyManager.Instance.UpdateBankBalance(item.value)) item.purchased = true;
         else { item.purchased = false; Debug.LogWarning("Insufficent Balance: Cannot proceed with purchase"); }
         RefreshUI();
     }
