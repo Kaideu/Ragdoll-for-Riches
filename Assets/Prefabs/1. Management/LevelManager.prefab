@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1561344629937274931}
   - component: {fileID: 9090566785025171666}
   - component: {fileID: 8147033369701966886}
+  - component: {fileID: 340168392618764466}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -46,10 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugging: 0
-  playerRef: {fileID: 0}
   _objs:
   - {fileID: 1106566292824951688, guid: 12a521e38a21e44488213ce73f30e4af, type: 3}
-  _verticalSpawnDistance: 100
+  _verticalSpawnDistance: 50
   _horizontalSpawnDistRange: {x: 0, y: 5}
   _spawnTimeRange: {x: 1, y: 3}
 --- !u!114 &8147033369701966886
@@ -64,3 +64,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845bb1bdc9c8bf248a372410ae9824e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doesPersist: 1
+  _playerPrefab: {fileID: 7098790552111363430, guid: 353d45fe1e79118408acca7f2eed877c, type: 3}
+  _startPosition: {fileID: 0}
+  cmvc: {fileID: 0}
+--- !u!114 &340168392618764466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839723983273801884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06512b721a1ec047b21958eb48408ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doesPersist: 1
+  _currentBalance: 0
+  _collectedBalance: 0

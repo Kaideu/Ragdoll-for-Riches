@@ -12,7 +12,8 @@ namespace Kaideu.Events
         DisableRagdoll,
         UI,
         RagdollState,
-        Grounded
+        Grounded,
+        BankUpdate
     }
 
     public class EventManager : Utils.SingletonPattern<EventManager>
