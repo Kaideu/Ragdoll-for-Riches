@@ -2873,6 +2873,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450652702943640}
+  - component: {fileID: 919132148984738595}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -2880,6 +2881,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132148984738595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148984738594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56b4442393a09b4b9d647fe97265460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  costumeMenu: {fileID: 299279069}
+  hairMenu: {fileID: 0}
+  headgearMenu: {fileID: 0}
+  characterCostumes:
+  - {fileID: 1638572197454466424}
+  - {fileID: 2075874737842765371}
+  - {fileID: 7031612251280831804}
+  - {fileID: 2632861715338275171}
+  - {fileID: 243081455584599178}
+  - {fileID: 5879892783219931746}
+  - {fileID: 3703711968010183644}
+  characterHairs: []
+  characterHeadGears: []
 --- !u!4 &921644747252093586
 Transform:
   m_ObjectHideFlags: 0

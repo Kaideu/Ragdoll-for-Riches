@@ -39,7 +39,7 @@ public class CustomizeMenu : MonoBehaviour
 
     public enum ListFor { Costume, Hair, Headgear }
     public ListFor listFor;
-    public event Action<Item, ListFor> OnItemChanged;
+    public event Action<Item> OnItemChanged;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +55,7 @@ public class CustomizeMenu : MonoBehaviour
         RightBtn.gameObject.SetActive(false);
         if (currItemIndex < items.Count - 1) currItemIndex++;
         else currItemIndex = 0;
-        
+        OnItemChanged?.Invoke(items[currItemIndex]);
         RightBtn.gameObject.SetActive(true);
     }
     void PrevItem()
