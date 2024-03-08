@@ -140,10 +140,12 @@ public class RagdollController : MonoBehaviour
 
     private void IdleBehaviour()
     {
+        /*
         if (Kaideu.Input.InputManager.Instance.Controls.Player.Space.WasPressedThisFrame())
         {
             //_anim.SetTrigger("Jumped");
         }
+        /**/
         _rb.isKinematic = true;
     }
 

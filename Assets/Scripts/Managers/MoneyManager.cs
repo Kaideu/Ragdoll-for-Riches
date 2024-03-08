@@ -30,7 +30,7 @@ public class MoneyManager : Kaideu.Utils.SingletonPattern<MoneyManager>
         EventManager.Instance.TriggerEvent(Events.BankUpdate, new Dictionary<string, object> { { "Balance", _currentBalance } });
         // Debug.Log(_currentBalance);
     }
-    public void UpdateCollectedBalance(string bodypart)
+    public void UpdateCollectedBalance(AddMoney.BodyPart bodypart)
     {
 
 
@@ -38,20 +38,28 @@ public class MoneyManager : Kaideu.Utils.SingletonPattern<MoneyManager>
         switch (bodypart)
         {
 
-            case "head":
+            case AddMoney.BodyPart.head:
                 collectedBalance = 1000;
                 // Debug.LogWarning(collectedBalance);
                 break;
-            case "torso":
+            case AddMoney.BodyPart.torso:
                 collectedBalance = 500;
                 // Debug.LogWarning(collectedBalance);
                 break;
-            case "leg":
+            case AddMoney.BodyPart.thigh:
                 collectedBalance = 250;
                 // Debug.LogWarning(collectedBalance);
                 break;
-            case "arm":
+            case AddMoney.BodyPart.arm:
                 collectedBalance = 250;
+                // Debug.LogWarning(collectedBalance);
+                break;
+            case AddMoney.BodyPart.shin:
+                collectedBalance = 100;
+                // Debug.LogWarning(collectedBalance);
+                break;
+            case AddMoney.BodyPart.forearm:
+                collectedBalance = 100;
                 // Debug.LogWarning(collectedBalance);
                 break;
 

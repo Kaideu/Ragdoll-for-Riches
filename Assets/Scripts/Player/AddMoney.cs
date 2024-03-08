@@ -6,11 +6,11 @@ public class AddMoney : MonoBehaviour
 {
     [SerializeField]
     LayerMask obstacles;
-    public enum BodyPart{head, torso, arm, leg}
+    public enum BodyPart{head, torso, arm, thigh, forearm, shin}
     public BodyPart bodyPart;
     private void OnCollisionExit(Collision other) {
         if (Kaideu.Utils.Helpers.IsInLayerMask(obstacles, other.gameObject.layer)){
-            MoneyManager.Instance.UpdateCollectedBalance(bodyPart.ToString());
+            MoneyManager.Instance.UpdateCollectedBalance(bodyPart);
         }
     }
 }
