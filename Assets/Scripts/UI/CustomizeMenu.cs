@@ -37,9 +37,17 @@ public class CustomizeMenu : MonoBehaviour
     [SerializeField] private Button EquipBtn;
     [SerializeField] public int currItemIndex;
 
-    public enum ListFor { Costume, Hair, Headgear }
+    public enum ListFor { Costume, Hair, Headgear, Beard }
     public ListFor listFor;
     public event Action<Item> OnItemChanged;
+
+    void RefreshUI()
+    {
+        if (items[currItemIndex].purchased) BuyBtn.gameObject.SetActive(false);
+        else BuyBtn.gameObject.SetActive(true);
+        if (items[currItemIndex].equipped || !items[currItemIndex].purchased) EquipBtn.gameObject.SetActive(false);
+        else EquipBtn.gameObject.SetActive(true);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +55,32 @@ public class CustomizeMenu : MonoBehaviour
         currItemIndex = 0;
         LeftBtn.onClick.AddListener(() => PrevItem());
         RightBtn.onClick.AddListener(() => NextItem());
+        BuyBtn.onClick.AddListener(() => BuyItem());
+        EquipBtn.onClick.AddListener(() => EquipItem());
+        RefreshUI();
+    }
+
+    private void EquipItem()
+    {
+        Item item = items[currItemIndex];
+        if (!item.purchased) return;
+        EquipBtn.gameObject.SetActive(false);
+        foreach (Item obj in items)
+        {
+            if (obj.name.Equals(item.name)) obj.equipped = true;
+            else obj.equipped = false;
+        }
+        RefreshUI();
+        //save equipment in memory player prepfs or in json file
+    }
+
+    private void BuyItem()
+    {
+        Item item = items[currItemIndex];
+        if (item.purchased) return;
+        if (MoneyManager.Instance.UpdateBalance(item.value)) item.purchased = true;
+        else { item.purchased = false; Debug.LogWarning("Insufficent Balance: Cannot proceed with purchase"); }
+        RefreshUI();
     }
 
     void NextItem()
@@ -55,6 +89,7 @@ public class CustomizeMenu : MonoBehaviour
         RightBtn.gameObject.SetActive(false);
         if (currItemIndex < items.Count - 1) currItemIndex++;
         else currItemIndex = 0;
+        RefreshUI();
         OnItemChanged?.Invoke(items[currItemIndex]);
         RightBtn.gameObject.SetActive(true);
     }
@@ -64,12 +99,8 @@ public class CustomizeMenu : MonoBehaviour
         LeftBtn.gameObject.SetActive(false);
         if (currItemIndex > 0) currItemIndex--;
         else currItemIndex = items.Count - 1;
+        RefreshUI();
+        OnItemChanged?.Invoke(items[currItemIndex]);
         LeftBtn.gameObject.SetActive(true);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
