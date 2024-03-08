@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 299279067}
   - component: {fileID: 299279069}
   m_Layer: 5
-  m_Name: CustomizeScreen
+  m_Name: CustomizeCostumeScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,29 +372,29 @@ MonoBehaviour:
   - name: Character_BusinessMale_01
     value: 0
     purchased: 1
-    equipped: 0
+    equipped: 1
   - name: Character_MercenaryMale_01
-    value: 0
+    value: 100
     purchased: 0
     equipped: 0
   - name: Character_MilitaryMale_01
-    value: 0
+    value: 200
     purchased: 0
     equipped: 0
   - name: Character_RedneckMale_01
-    value: 0
+    value: 300
     purchased: 0
     equipped: 0
   - name: Character_SportyMale_01
-    value: 0
+    value: 400
     purchased: 0
     equipped: 0
   - name: Character_SportyMale_02
-    value: 0
+    value: 500
     purchased: 0
     equipped: 0
   - name: Character_ToplessMale_01
-    value: 0
+    value: 600
     purchased: 0
     equipped: 0
   RightBtn: {fileID: 168779225}
@@ -845,6 +845,53 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1223039195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1223039197}
+  - component: {fileID: 1223039196}
+  m_Layer: 0
+  m_Name: MoneyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1223039196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223039195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06512b721a1ec047b21958eb48408ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doesPersist: 1
+  _currentBalance: 500
+  _collectedBalance: 0
+--- !u!4 &1223039197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223039195}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.418554, y: 0.5828824, z: -5.3931384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2896,6 +2943,7 @@ MonoBehaviour:
   costumeMenu: {fileID: 299279069}
   hairMenu: {fileID: 0}
   headgearMenu: {fileID: 0}
+  beardMenu: {fileID: 0}
   characterCostumes:
   - {fileID: 1638572197454466424}
   - {fileID: 2075874737842765371}
@@ -2906,6 +2954,7 @@ MonoBehaviour:
   - {fileID: 3703711968010183644}
   characterHairs: []
   characterHeadGears: []
+  characterBeards: []
 --- !u!4 &921644747252093586
 Transform:
   m_ObjectHideFlags: 0
@@ -11338,3 +11387,4 @@ SceneRoots:
   - {fileID: 1859191843}
   - {fileID: 848862473}
   - {fileID: 543450652702943640}
+  - {fileID: 1223039197}
