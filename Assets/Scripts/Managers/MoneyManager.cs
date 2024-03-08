@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Kaideu.Events;
 
 public class MoneyManager : Kaideu.Utils.SingletonPattern<MoneyManager>
 {
@@ -11,13 +12,24 @@ public class MoneyManager : Kaideu.Utils.SingletonPattern<MoneyManager>
     public int _collectedBalance = 0;
     private int collectedBalance;
 
-    public void UpdateBank(int collectedMoney)
+    private void OnEnable()
     {
-        _currentBalance += collectedMoney;
+        EventManager.Instance.StartListening(Events.EndLevel, DepositCollected);
+    }
+    private void OnDisable()
+    {
+        EventManager.Instance.StopListening(Events.EndLevel, DepositCollected);
+    }
+
+    public void DepositCollected(Dictionary<string, object> arg0)
+    {
+        _currentBalance += _collectedBalance;
         _collectedBalance = 0;
+
+        EventManager.Instance.TriggerEvent(Events.BankUpdate, new Dictionary<string, object> { { "Balance", _currentBalance } });
         // Debug.Log(_currentBalance);
     }
-    public void UpdateBalance(string bodypart)
+    public void UpdateCollectedBalance(string bodypart)
     {
 
 
@@ -47,19 +59,25 @@ public class MoneyManager : Kaideu.Utils.SingletonPattern<MoneyManager>
 
         // Debug.LogWarning(_collectedBalance);
         collectedBalance = 0;
+        HUD.Instance.UpdateCollected(_collectedBalance);
     }
-    public bool UpdateBalance(int price)
+    public bool UpdateBankBalance(int price)
     {
+        bool returned;
         if (price <= _currentBalance)
         {
             _currentBalance -= price;
-            return true;
+            returned = true;
 
         }
         else
         {
-            return false;
+            returned = false;
         }
+
+        EventManager.Instance.TriggerEvent(Events.BankUpdate, new Dictionary<string, object> { { "Balance", _currentBalance } });
+
+        return returned;
     }
 
 
