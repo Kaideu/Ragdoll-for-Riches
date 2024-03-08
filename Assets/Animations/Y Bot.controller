@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66587dfa7d8eb9d42a5ede639c36cb24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _triggersOnExit: 0
   evt: 6
   animationState: 3
 --- !u!1101 &-6686347820953402965
@@ -32,31 +33,6 @@ AnimatorStateTransition:
   m_TransitionOffset: 0.20874241
   m_ExitTime: 0.41477197
   m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &-5458949445919013137
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: Ragdoll
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -3256107946948944279}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.75
-  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -102,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66587dfa7d8eb9d42a5ede639c36cb24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _triggersOnExit: 0
   evt: 6
   animationState: 1
 --- !u!91 &9100000
@@ -156,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66587dfa7d8eb9d42a5ede639c36cb24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _triggersOnExit: 0
   evt: 6
   animationState: 2
 --- !u!114 &1896472706039525672
@@ -170,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66587dfa7d8eb9d42a5ede639c36cb24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _triggersOnExit: 0
   evt: 6
   animationState: 0
 --- !u!1101 &3347222709685118580
@@ -288,20 +267,17 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Ragdoll
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7356036773449056936}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 1.2117891
   m_TransitionOffset: 0
-  m_ExitTime: 0.9509804
-  m_HasExitTime: 0
+  m_ExitTime: 0.76239425
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -344,8 +320,7 @@ AnimatorState:
   m_Name: Ragdoll
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: -5458949445919013137}
+  m_Transitions: []
   m_StateMachineBehaviours:
   - {fileID: -8034234934520142049}
   m_Position: {x: 50, y: 50, z: 0}
@@ -356,7 +331,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: -203655887218126122, guid: ded48d127eeeabc4a9abac43af349491, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

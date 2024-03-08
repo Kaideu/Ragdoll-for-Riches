@@ -9,21 +9,12 @@ public class HUD : Kaideu.Utils.SingletonPattern<HUD>
 {
     [SerializeField]
     TextMeshProUGUI _collectedBalance;
+    [SerializeField]
+    GameObject _hintPanel;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public void UpdateCollected(int amount) => _collectedBalance.text = $"Current Claim: {amount}";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void ToggleHint(bool isOn) => _hintPanel.SetActive(isOn);
 
-    internal void UpdateCollected(int amount)
-    {
-        _collectedBalance.text = $"Current Claim: {amount}";
-    }
+
 }

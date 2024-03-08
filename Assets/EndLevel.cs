@@ -13,6 +13,8 @@ public class EndLevel : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI _score;
 
+    bool _isSafe;
+
     private void OnEnable()
     {
         EventManager.Instance.StartListening(Events.Grounded, Show);
@@ -24,14 +26,14 @@ public class EndLevel : MonoBehaviour
 
     private void Show(Dictionary<string, object> arg0)
     {
-        var isSafe = (bool)arg0["Safe"];
-        _title.text = (isSafe) ? "Safe Landing" : "Game Over";
-        _score.text = "$" + MoneyManager.Instance._collectedBalance.ToString();
+        _isSafe = (bool)arg0["Safe"];
+        _title.text = (_isSafe) ? "Safe Landing" : "Game Over";
+        _score.text = "$" + ((_isSafe)?MoneyManager.Instance._collectedBalance:"0");
         UIHandler.Instance.ShowUI("EndLevel");
     }
 
     public void CompleteLevel()
     {
-        EventManager.Instance.TriggerEvent(Events.EndLevel, null);
+        EventManager.Instance.TriggerEvent(Events.EndLevel, new Dictionary<string, object> { { "Safe", _isSafe } });
     }
 }

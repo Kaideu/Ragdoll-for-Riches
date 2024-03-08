@@ -408,7 +408,7 @@ MonoBehaviour:
     transitionToTime: 2
     followOffset: {x: 0.74, y: 0.71, z: 0.55}
     trackedObjectOffset: {x: 0.74, y: 0, z: 0.59}
-    aimOffset: {x: -0.74, y: -0.66, z: -2.12}
+    aimOffset: {x: -1.33, y: -0.66, z: -2}
   _currentSettings:
     state: 0
     transitionToTime: 0

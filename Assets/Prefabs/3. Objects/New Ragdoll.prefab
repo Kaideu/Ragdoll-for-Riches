@@ -86,6 +86,9 @@ PrefabInstance:
       addedObject: {fileID: 7472707009016152367}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9e97c549cc2484647a75f9b4b25e2442, type: 3}
       insertIndex: -1
+      addedObject: {fileID: -5794227663157653983}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9e97c549cc2484647a75f9b4b25e2442, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1458257029748346496}
     - targetCorrespondingSourceObject: {fileID: 1082271958561512970, guid: 9e97c549cc2484647a75f9b4b25e2442, type: 3}
       insertIndex: -1
@@ -1405,9 +1408,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5375f3a40b676cd429e349a5aec985c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
+  _groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  _maxSafeYVelocity: 10
 --- !u!136 &8212365441666942726
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1448,8 +1452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b092f776e18414faa7a5fe0d8ca20e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAcceleration: 9.8
-  terminalVelocity: 50
+  _maxAcceleration: 9.8
+  _terminalVelocity: 25
 --- !u!114 &242403188345999581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,7 +1467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 6854221892487336453}
-  _moveSpeed: 20000
+  _moveSpeed: 15000
   _input: {x: 0, y: 0}
 --- !u!114 &1989927995542211369
 MonoBehaviour:
@@ -1491,6 +1495,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _physM: {fileID: 2250433334158396008}
+--- !u!114 &-5794227663157653983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7098790552111363430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e4cde58cc467542a4ed205bae8c836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _velocity: {x: 0, y: 0, z: 0}
 --- !u!54 &1458257029748346496
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1517,7 +1534,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &7808595031340305009 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -9070493210130169274, guid: 9e97c549cc2484647a75f9b4b25e2442, type: 3}

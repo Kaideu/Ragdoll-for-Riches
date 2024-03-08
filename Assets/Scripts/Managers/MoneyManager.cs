@@ -23,7 +23,8 @@ public class MoneyManager : Kaideu.Utils.SingletonPattern<MoneyManager>
 
     public void DepositCollected(Dictionary<string, object> arg0)
     {
-        _currentBalance += _collectedBalance;
+        var isSafe = (bool)arg0["Safe"];
+        _currentBalance += (isSafe)?_collectedBalance:0;
         _collectedBalance = 0;
 
         EventManager.Instance.TriggerEvent(Events.BankUpdate, new Dictionary<string, object> { { "Balance", _currentBalance } });

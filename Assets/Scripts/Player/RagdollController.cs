@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Kaideu.Physics;
 
 public class RagdollController : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class RagdollController : MonoBehaviour
     Animator _anim;
     Rigidbody _rb;
     Rigidbody _hrb;
+    PhysicsManager _pm;
+    
 
     [SerializeField]
     RagdollAnimState _currentState = RagdollAnimState.Idle;
@@ -41,6 +44,7 @@ public class RagdollController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
         _hrb = GetComponentInChildren<ListenForGround>().GetComponent<Rigidbody>();
+        _pm = GetComponent<PhysicsManager>();
 
         DisableRagdoll(null);
         _anim.enabled = true;
@@ -79,10 +83,16 @@ public class RagdollController : MonoBehaviour
                 _anim.applyRootMotion = true;
                 _anim.ResetTrigger("Reset");
                 _anim.ResetTrigger("Jump");
+                _pm.ResetTerminalVelocity();
                 break;
             case RagdollAnimState.Falling:
                 _rb.isKinematic = false;
                 _anim.applyRootMotion = false;
+                break;
+            case RagdollAnimState.Ragdoll:
+                _rb.isKinematic = false;
+                _anim.applyRootMotion = false;
+                EnableRagdoll(null);
                 break;
         }
     }
@@ -96,6 +106,8 @@ public class RagdollController : MonoBehaviour
                 IdleBehaviour();
                 break;
             case RagdollAnimState.Ragdoll:
+                _rb.velocity = _hrb.velocity;
+                _hrb.transform.localPosition = new(0, 1f, 0f);
                 RagdollBehaviour();
                 break;
             case RagdollAnimState.Falling:
@@ -142,11 +154,16 @@ public class RagdollController : MonoBehaviour
             DisableRagdoll(null);
         }
         _rb.velocity = _hrb.velocity;
+
+        if (Kaideu.Input.InputManager.Instance.Controls.Player.Space.WasPressedThisFrame() && transform.position.y < LevelManager.Instance.MinParachuteHeight)
+        {
+            _pm.SetTerminalVelocity(4);
+        }
     }
 
     private void FallingBehaviour()
     {
-        EnableRagdoll(null);
+        //EnableRagdoll(null);
         if (Kaideu.Input.InputManager.Instance.Controls.Player.Ragdoll.WasPressedThisFrame())
         {
             EnableRagdoll(null);
@@ -174,6 +191,5 @@ public class RagdollController : MonoBehaviour
             _rb.isKinematic = true;
         }
     }
-
 
 }

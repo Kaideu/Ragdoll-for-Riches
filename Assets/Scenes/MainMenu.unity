@@ -265,7 +265,7 @@ Transform:
   m_GameObject: {fileID: 390326322}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1000, z: 0}
+  m_LocalPosition: {x: 0, y: 200, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -977,6 +977,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 982896981099135034, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299743498207802998, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1503520221798839377, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
       propertyPath: m_Name
       value: UI
@@ -1120,6 +1128,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8147033369701966886, guid: ba12a72bcccdbe146968e53f2ed665fd, type: 3}
       propertyPath: cmvc
+      value: 
+      objectReference: {fileID: 315079550}
+    - target: {fileID: 8147033369701966886, guid: ba12a72bcccdbe146968e53f2ed665fd, type: 3}
+      propertyPath: _cmvc
       value: 
       objectReference: {fileID: 315079550}
     - target: {fileID: 8147033369701966886, guid: ba12a72bcccdbe146968e53f2ed665fd, type: 3}

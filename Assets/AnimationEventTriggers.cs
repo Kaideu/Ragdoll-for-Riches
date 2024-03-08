@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AnimationEventTriggers : StateMachineBehaviour
 {
+    [SerializeField][Tooltip("Triggers on Enter if false")]
+    bool _triggersOnExit;
 
     [SerializeField]
     Kaideu.Events.Events evt;
@@ -13,7 +15,14 @@ public class AnimationEventTriggers : StateMachineBehaviour
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Kaideu.Events.EventManager.Instance.TriggerEvent(evt, new Dictionary<string, object> { { "State", animationState} });
+        if(!_triggersOnExit)
+            Kaideu.Events.EventManager.Instance.TriggerEvent(evt, new Dictionary<string, object> { { "State", animationState} });
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (_triggersOnExit)
+            Kaideu.Events.EventManager.Instance.TriggerEvent(evt, new Dictionary<string, object> { { "State", animationState } });
     }
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
