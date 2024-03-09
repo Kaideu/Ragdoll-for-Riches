@@ -48,10 +48,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugging: 0
   _objs:
-  - {fileID: 1106566292824951688, guid: 12a521e38a21e44488213ce73f30e4af, type: 3}
-  _verticalSpawnDistance: 50
-  _horizontalSpawnDistRange: {x: 0, y: 5}
-  _spawnTimeRange: {x: 1, y: 3}
+  - {fileID: 1416722638032424, guid: 93df257019f5c1a42aec13e221abe51f, type: 3}
+  - {fileID: 1174532382986712, guid: fe4e14b3321f2a74491656ace505b8d0, type: 3}
+  - {fileID: 1475137749187476, guid: d1393e279c77e044cb6df9694d329eb7, type: 3}
+  - {fileID: 1588381071799560, guid: db5e1ffe6760d614c8e2ef2894ef5d8a, type: 3}
+  - {fileID: 1154607073066192, guid: 91d9ece43f62e5a4f8c1c20712e8fa16, type: 3}
+  - {fileID: 1029301884381818, guid: bf6a79076de32e647ad1b0aa2cf468c7, type: 3}
+  _verticalSpawnDistance: 25
+  _horizontalSpawnDistRange: {x: 0, y: 4}
+  _spawnTimeRange: {x: 0.5, y: 2}
 --- !u!114 &8147033369701966886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,9 +70,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doesPersist: 1
-  _playerPrefab: {fileID: 7098790552111363430, guid: 353d45fe1e79118408acca7f2eed877c, type: 3}
+  _playerPrefab: {fileID: 8229947900306683273, guid: 67cd81998bd823840a254d0b6b9799a5, type: 3}
   _startPosition: {fileID: 0}
-  cmvc: {fileID: 0}
+  _cmvc: {fileID: 0}
+  _minParachuteHeight: 50
 --- !u!114 &340168392618764466
 MonoBehaviour:
   m_ObjectHideFlags: 0
