@@ -50,8 +50,10 @@ public class LevelManager : Kaideu.Utils.SingletonPattern<LevelManager>
         Player.transform.position = _startPosition.position;
         _cmvc.Follow = Player.transform;
         _cmvc.LookAt = Player.transform;
-
+        Debug.Log(_cmvc.transform.position);
+        Debug.Log(Player.transform.position);
         Kaideu.UI.UIHandler.Instance.ShowUI("MainMenu");
+        EventManager.Instance.TriggerEvent(Events.MainMenu, null);
 
 
     }
@@ -69,7 +71,7 @@ public class LevelManager : Kaideu.Utils.SingletonPattern<LevelManager>
             _cmvc.LookAt = Player.transform;
 
             Kaideu.UI.UIHandler.Instance.ShowUI("MainMenu");
-
+            EventManager.Instance.TriggerEvent(Events.MainMenu, null);
             hinted = false;
 
             //EventManager.Instance.TriggerEvent(Events.UI, )

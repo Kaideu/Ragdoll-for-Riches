@@ -13,7 +13,8 @@ namespace Kaideu.Events
         UI,
         RagdollState,
         Grounded,
-        BankUpdate
+        BankUpdate,
+        MainMenu
     }
 
     public class EventManager : Utils.SingletonPattern<EventManager>
