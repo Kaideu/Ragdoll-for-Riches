@@ -17,8 +17,9 @@ public class LevelManager : Kaideu.Utils.SingletonPattern<LevelManager>
     float _minParachuteHeight = 50;
     public float MinParachuteHeight => _minParachuteHeight;
 
-    bool hasEnded = false;
     bool hinted = false;
+    bool hasEnded = true;
+    public bool HasEnded => hasEnded;
 
     //[Header("CinemachineSettings")]
     //[SerializeField]
@@ -52,7 +53,6 @@ public class LevelManager : Kaideu.Utils.SingletonPattern<LevelManager>
         _cmvc.LookAt = Player.transform;
         Debug.Log(_cmvc.transform.position);
         Debug.Log(Player.transform.position);
-        Kaideu.UI.UIHandler.Instance.ShowUI("MainMenu");
         EventManager.Instance.TriggerEvent(Events.MainMenu, null);
 
 

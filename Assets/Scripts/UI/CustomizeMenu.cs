@@ -30,6 +30,15 @@ public class Item
 }
 public class CustomizeMenu : MonoBehaviour
 {
+    public enum ListFor
+    {
+        Costume,
+        Hair,
+        Headgear,
+        Beard
+    }
+
+    [SerializeField] ListFor listFor;
     [SerializeField] List<Item> items = new List<Item>();
     [SerializeField] private Button RightBtn;
     [SerializeField] private Button LeftBtn;
@@ -37,9 +46,39 @@ public class CustomizeMenu : MonoBehaviour
     [SerializeField] private Button EquipBtn;
     [SerializeField] public int currItemIndex;
 
-    public enum ListFor { Costume, Hair, Headgear, Beard }
-    public ListFor listFor;
     public event Action<Item> OnItemChanged;
+
+    VisualManager _vm;
+
+    private void OnEnable()
+    {
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.Customization, GetCurrentIndex);
+    }
+    private void OnDisable()
+    {
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.Customization, GetCurrentIndex);
+    }
+
+    private void GetCurrentIndex(Dictionary<string, object> arg0)
+    {
+        switch (listFor)
+        {
+            case ListFor.Costume:
+                currItemIndex = _vm.MyVisuals.costume;
+                break;
+            case ListFor.Hair:
+                currItemIndex = _vm.MyVisuals.hair;
+                break;
+            case ListFor.Headgear:
+                currItemIndex = _vm.MyVisuals.headgear;
+                break;
+            case ListFor.Beard:
+                currItemIndex = _vm.MyVisuals.beard;
+                break;
+        }
+
+        RefreshUI();
+    }
 
     void RefreshUI()
     {
@@ -52,6 +91,8 @@ public class CustomizeMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _vm = LevelManager.Instance.Player.GetComponentInChildren<VisualManager>();
+        _vm.SetMenu(listFor, this);
         currItemIndex = 0;
         LeftBtn.onClick.AddListener(() => PrevItem());
         RightBtn.onClick.AddListener(() => NextItem());
@@ -70,6 +111,7 @@ public class CustomizeMenu : MonoBehaviour
             if (obj.name.Equals(item.name)) obj.equipped = true;
             else obj.equipped = false;
         }
+        _vm.SetVisual(listFor, currItemIndex);
         RefreshUI();
         //save equipment in memory player prepfs or in json file
     }

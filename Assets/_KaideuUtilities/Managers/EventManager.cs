@@ -14,7 +14,9 @@ namespace Kaideu.Events
         RagdollState,
         Grounded,
         BankUpdate,
-        MainMenu
+        MainMenu,
+        RepositionCamera,
+        Customization
     }
 
     public class EventManager : Utils.SingletonPattern<EventManager>

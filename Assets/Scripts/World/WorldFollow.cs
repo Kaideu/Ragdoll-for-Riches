@@ -29,10 +29,7 @@ public class WorldFollow : MonoBehaviour
     {
         EventManager.Instance.StopListening(Events.MainMenu, SetLevPos);
     }
-    public void SetLevPos(Dictionary<string, object> arg){
-        gameObject.transform.position = new Vector3(StartPos.position.x, StartPos.position.y -offsety, StartPos.position.z);
-        Debug.Log("Im Working" + transform.position);
-    }
+    public void SetLevPos(Dictionary<string, object> arg) => gameObject.transform.position = new Vector3(StartPos.position.x, StartPos.position.y -offsety, StartPos.position.z);
 
     public void FollowTarget(){
         WorldPosition = new Vector3(LevelManager.Instance.Player.transform.position.x + offsetx, LevelManager.Instance.Player.transform.position.y - offsety, LevelManager.Instance.Player.transform.position.z + offsetz);

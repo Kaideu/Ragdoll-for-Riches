@@ -1,28 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class VisualManager : MonoBehaviour
 {
-    [SerializeField] private CustomizeMenu costumeMenu;
-    [SerializeField] private CustomizeMenu hairMenu;
-    [SerializeField] private CustomizeMenu headgearMenu;
-    [SerializeField] private CustomizeMenu beardMenu;
+    [Serializable]
+    public class PlayerVisuals
+    {
+        [SerializeField]
+        public int costume = 0;
+        [SerializeField]
+        public int hair = 0;
+        [SerializeField]
+        public int headgear = 0;
+        [SerializeField]
+        public int beard = 0;
+    }
 
     [SerializeField] private GameObject[] characterCostumes;
     [SerializeField] private GameObject[] characterHairs;
     [SerializeField] private GameObject[] characterHeadGears;
     [SerializeField] private GameObject[] characterBeards;
 
-    // Start is called before the first frame update
-    void Start()
+    Dictionary<CustomizeMenu.ListFor, CustomizeMenu> menuDict;
+
+    PlayerVisuals _myVisuals = new();
+    public PlayerVisuals MyVisuals => _myVisuals;
+
+    private void Awake()
     {
-        if (costumeMenu) costumeMenu.OnItemChanged += CostumeMenu_OnItemChanged;
-        if (hairMenu) hairMenu.OnItemChanged += HairMenu_OnItemChanged;
-        if (headgearMenu) headgearMenu.OnItemChanged += HeadgearMenu_OnItemChanged;
-        if (beardMenu) beardMenu.OnItemChanged += BeardMenu_OnItemChanged;
+        menuDict = new Dictionary<CustomizeMenu.ListFor, CustomizeMenu>() {
+            { CustomizeMenu.ListFor.Costume, null },
+            { CustomizeMenu.ListFor.Hair, null },
+            { CustomizeMenu.ListFor.Headgear, null },
+            { CustomizeMenu.ListFor.Beard, null } };
     }
 
+    private void OnEnable()
+    {
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.MainMenu, ResetVisuals);
+    }
+
+    private void OnDisable()
+    {
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.MainMenu, ResetVisuals);
+    }
+
+    public void SetMenu(CustomizeMenu.ListFor menu, CustomizeMenu cm)
+    {
+        menuDict[menu] = cm;
+        switch (menu)
+        {
+            case CustomizeMenu.ListFor.Costume:
+                menuDict[menu].OnItemChanged += CostumeMenu_OnItemChanged;
+                break;
+            case CustomizeMenu.ListFor.Hair:
+                menuDict[menu].OnItemChanged += HairMenu_OnItemChanged;
+                break;
+            case CustomizeMenu.ListFor.Headgear:
+                menuDict[menu].OnItemChanged += HeadgearMenu_OnItemChanged;
+                break;
+            case CustomizeMenu.ListFor.Beard:
+                menuDict[menu].OnItemChanged += BeardMenu_OnItemChanged;
+                break;
+        }
+
+    }
     private void BeardMenu_OnItemChanged(Item obj)
     {
         if (characterBeards.Length == 0) return;
@@ -62,4 +106,64 @@ public class VisualManager : MonoBehaviour
             else costume.SetActive(false);
         }
     }
+
+    internal void SetVisual(CustomizeMenu.ListFor itemType, int currItemIndex)
+    {
+        switch (itemType)
+        {
+            case CustomizeMenu.ListFor.Costume:
+                _myVisuals.costume = currItemIndex;
+                break;
+            case CustomizeMenu.ListFor.Hair:
+                _myVisuals.hair = currItemIndex;
+                break;
+            case CustomizeMenu.ListFor.Headgear:
+                _myVisuals.headgear = currItemIndex;
+                break;
+            case CustomizeMenu.ListFor.Beard:
+                _myVisuals.beard = currItemIndex;
+                break;
+        }
+    }
+
+    private void ResetVisuals(Dictionary<string, object> arg0)
+    {
+        print("Reset Visuals");
+        for (int i = 0; i < characterCostumes.Length; i++)
+        {
+            var item = characterCostumes[i];
+
+            if (i == _myVisuals.costume)
+                item.SetActive(true);
+            else item.SetActive(false);
+        }
+
+        for (int i = 0; i < characterHairs.Length; i++)
+        {
+            var item = characterHairs[i];
+
+            if (i == _myVisuals.hair)
+                item.SetActive(true);
+            else item.SetActive(false);
+        }
+
+        for (int i = 0; i < characterHeadGears.Length; i++)
+        {
+            var item = characterHeadGears[i];
+
+            if (i == _myVisuals.headgear)
+                item.SetActive(true);
+            else item.SetActive(false);
+        }
+
+        for (int i = 0; i < characterBeards.Length; i++)
+        {
+            var item = characterBeards[i];
+
+            if (i == _myVisuals.beard)
+                item.SetActive(true);
+            else item.SetActive(false);
+        }
+    }
+
 }

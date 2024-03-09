@@ -24,7 +24,7 @@ public class ObjectSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var canSpawn = Time.time >= _nextSpawnTime && playerRef.position.y > _verticalSpawnDistance * 2;
+        var canSpawn = !LevelManager.Instance.HasEnded && Time.time >= _nextSpawnTime && playerRef.position.y > _verticalSpawnDistance * 2;
 
         if ((InputManager.Instance.Controls.Player.Interact.WasPressedThisFrame() && debugging)|| ( !debugging && canSpawn && _objs.Length > 0))
         {

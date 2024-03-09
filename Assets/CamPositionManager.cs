@@ -11,6 +11,7 @@ public class CamPositionManager : MonoBehaviour
         None,
         MainMenu,
         Falling,
+        Customize
     }
 
     [Serializable]
@@ -67,26 +68,26 @@ public class CamPositionManager : MonoBehaviour
     {
         Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.StartLevel, SetPlay);
         Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.EndLevel, SetMainMenu);
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.RepositionCamera, SetCamState);
     }
 
     private void OnDisable()
     {
         Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.StartLevel, SetPlay);
         Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.EndLevel, SetMainMenu);
+        Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.RepositionCamera, SetCamState);
     }
 
-    private void SetMainMenu(Dictionary<string, object> arg0)
-    {
-        _lastSettings = _currentSettings;
-        _currentSettings = _camSettingsDict[CamState.MainMenu];
-        startTime = Time.time;
-        lerpTime = 0;
-    }
+    private void SetMainMenu(Dictionary<string, object> arg0) => SetState(CamState.MainMenu);
 
-    private void SetPlay(Dictionary<string, object> arg0)
+    private void SetPlay(Dictionary<string, object> arg0) => SetState(CamState.Falling);
+
+    private void SetCamState(Dictionary<string, object> arg0) => SetState((CamState)arg0["State"]);
+
+    private void SetState(CamState state)
     {
         _lastSettings = _currentSettings;
-        _currentSettings = _camSettingsDict[CamState.Falling];
+        _currentSettings = _camSettingsDict[state];
         startTime = Time.time;
         lerpTime = 0;
     }
