@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6659458, g: 0.88264495, b: 0.88569474, a: 1}
+  m_IndirectSpecularColor: {r: 0.66594577, g: 0.88264495, b: 0.88569474, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1193,6 +1193,110 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: listFor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[0].name
+      value: Bald
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[1].name
+      value: SM_Chr_Attach_Male_Default_Hair_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[2].name
+      value: SM_Chr_Attach_Male_Hair_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[3].name
+      value: SM_Chr_Attach_Male_Hair_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[4].name
+      value: SM_Chr_Attach_Male_Hair_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[5].name
+      value: SM_Chr_Attach_Male_Hair_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[6].name
+      value: SM_Chr_Attach_Male_Hair_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[7].name
+      value: SM_Chr_Attach_Male_Hair_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[8].name
+      value: SM_Chr_Attach_Male_Hair_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[2].value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[3].value
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[4].value
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[5].value
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[6].value
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[7].value
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[8].value
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[0].equipped
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[1].equipped
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[2].equipped
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[0].purchased
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[1].purchased
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983613421691973494, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[2].purchased
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3202093883465997570, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
       propertyPath: m_fontColor.b
       value: 0
@@ -1208,6 +1312,318 @@ PrefabInstance:
     - target: {fileID: 3202093883465997570, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278255611
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: listFor
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.size
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[0].name
+      value: NoHeadGear
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[1].name
+      value: SM_Chr_Attach_Earmuffs_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[2].name
+      value: SM_Chr_Attach_Eyepatch_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[3].name
+      value: SM_Chr_Attach_Facemask_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[4].name
+      value: SM_Chr_Attach_Facemask_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[5].name
+      value: SM_Chr_Attach_Facemask_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[6].name
+      value: SM_Chr_Attach_GasMask_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[7].name
+      value: SM_Chr_Attach_Glasses_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[8].name
+      value: SM_Chr_Attach_Hat_Bandana_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[9].name
+      value: SM_Chr_Attach_Hat_Beanie_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[10].name
+      value: SM_Chr_Attach_Hat_Beer_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[11].name
+      value: SM_Chr_Attach_Hat_Bunny_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[12].name
+      value: SM_Chr_Attach_Hat_Cap_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[13].name
+      value: SM_Chr_Attach_Hat_Captian_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[14].name
+      value: SM_Chr_Attach_Hat_Cowboy_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[15].name
+      value: SM_Chr_Attach_Hat_Crown_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[16].name
+      value: SM_Chr_Attach_Hat_Cupcake_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[17].name
+      value: SM_Chr_Attach_Hat_Elf_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[18].name
+      value: SM_Chr_Attach_Hat_Fez_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[19].name
+      value: SM_Chr_Attach_Hat_FlatTop_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[20].name
+      value: SM_Chr_Attach_Hat_Football_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[21].name
+      value: SM_Chr_Attach_Hat_IceCream_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[22].name
+      value: SM_Chr_Attach_Hat_Irish_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[23].name
+      value: SM_Chr_Attach_Hat_Knight_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[24].name
+      value: SM_Chr_Attach_Hat_Mexican_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[25].name
+      value: SM_Chr_Attach_Hat_Mil_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[26].name
+      value: SM_Chr_Attach_Hat_Party_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[27].name
+      value: SM_Chr_Attach_Hat_Pot_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[28].name
+      value: SM_Chr_Attach_Hat_Racoon_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[29].name
+      value: SM_Chr_Attach_Hat_Roadcone_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[2].value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[30].name
+      value: SM_Chr_Attach_Hat_Roman_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[31].name
+      value: SM_Chr_Attach_Hat_Samurai_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[32].name
+      value: SM_Chr_Attach_Hat_Shark_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[33].name
+      value: SM_Chr_Attach_Hat_Squid_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[34].name
+      value: SM_Chr_Attach_Hat_Tacticle_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[35].name
+      value: SM_Chr_Attach_Hat_Turban_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[36].name
+      value: SM_Chr_Attach_Hat_Unicorn_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[3].value
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[4].value
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[5].value
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[6].value
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[7].value
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[8].value
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[9].value
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[10].value
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[11].value
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[12].value
+      value: 1100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[13].value
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[14].value
+      value: 1300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[15].value
+      value: 1400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[16].value
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[17].value
+      value: 1600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[18].value
+      value: 1700
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[19].value
+      value: 1800
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[20].value
+      value: 1900
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[21].value
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[22].value
+      value: 2100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[23].value
+      value: 2200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[24].value
+      value: 2300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[25].value
+      value: 2400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[26].value
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[27].value
+      value: 2600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[28].value
+      value: 2700
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[29].value
+      value: 2800
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[30].value
+      value: 2900
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[31].value
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[32].value
+      value: 3100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[33].value
+      value: 3200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[34].value
+      value: 3300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[35].value
+      value: 3400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[36].value
+      value: 3500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[0].equipped
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[0].purchased
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[1].purchased
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470309120036874262, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[13].purchased
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4608198897310390820, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1348,6 +1764,74 @@ PrefabInstance:
     - target: {fileID: 8531900061106964688, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
       propertyPath: m_fontStyle
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: listFor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[0].name
+      value: BeardLess
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[1].name
+      value: SM_Chr_Attach_Beard_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[2].name
+      value: SM_Chr_Attach_Beard_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[3].name
+      value: SM_Chr_Attach_Beard_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[4].name
+      value: SM_Chr_Attach_Beard_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[5].name
+      value: SM_Chr_Attach_Beard_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[6].name
+      value: SM_Chr_Attach_Beard_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[2].value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[3].value
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[4].value
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[5].value
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[6].value
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[0].equipped
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[0].purchased
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706477279445521727, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: items.Array.data[1].purchased
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
