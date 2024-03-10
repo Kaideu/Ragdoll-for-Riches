@@ -152,10 +152,12 @@ public class RagdollController : MonoBehaviour
 
     private void RagdollBehaviour()
     {
+        /*
         if (Kaideu.Input.InputManager.Instance.Controls.Player.Ragdoll.WasPressedThisFrame())
         {
             DisableRagdoll(null);
         }
+        /**/
         _rb.velocity = _hrb.velocity;
 
         if (Kaideu.Input.InputManager.Instance.Controls.Player.Space.WasPressedThisFrame() && transform.position.y < LevelManager.Instance.MinParachuteHeight)
@@ -168,10 +170,12 @@ public class RagdollController : MonoBehaviour
     private void FallingBehaviour()
     {
         //EnableRagdoll(null);
+        /*
         if (Kaideu.Input.InputManager.Instance.Controls.Player.Ragdoll.WasPressedThisFrame())
         {
             EnableRagdoll(null);
         }
+        /**/
         _rb.isKinematic = false;
     }
 
