@@ -14,10 +14,8 @@ public class Obstacle : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
 
         _rb.constraints = RigidbodyConstraints.FreezePositionY;
-        _rb.angularDrag = 0;
         _rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
         var dir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        print(dir);
         _rb.AddTorque(dir * Random.Range(10, 100), ForceMode.Impulse);
     }
 
