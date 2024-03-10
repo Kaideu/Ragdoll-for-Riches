@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Kaideu.Input;
 
-public class ObjectSpawner : MonoBehaviour
+public class ObjectSpawner : Kaideu.Utils.SingletonPattern<ObjectSpawner>
 {
     [SerializeField]
     bool debugging = false;
@@ -19,6 +19,7 @@ public class ObjectSpawner : MonoBehaviour
     Transform playerRef => LevelManager.Instance.Player.transform;
 
     float _nextSpawnTime;
+    public int Multiplyer = 0;
 
 
     // Update is called once per frame
