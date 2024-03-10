@@ -21,7 +21,7 @@ public class AddMoney : MonoBehaviour
 
         if (other.gameObject != _lastHit && Kaideu.Utils.Helpers.IsInLayerMask(obstacles, other.gameObject.layer))
         {
-            if (_rb.velocity.y > 10)
+            if (Mathf.Abs(_rb.velocity.y) > 10)
                 MoneyManager.Instance.UpdateCollectedBalance(bodyPart);
             else
                 Debug.Log($"Speed not enough for money: {bodyPart}");
