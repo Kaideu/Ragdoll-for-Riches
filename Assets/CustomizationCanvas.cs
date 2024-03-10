@@ -44,11 +44,14 @@ public class CustomizationCanvas : MonoBehaviour
 
     public void BackToMenu()
     {
+        foreach (ButtonUICombo ui in _buttonUICombos)
+            ui.itemGUIs.enabled = false;
         Kaideu.Events.EventManager.Instance.TriggerEvent(Kaideu.Events.Events.MainMenu, null);
     }
 
     public void ShowSelf(Dictionary<string, object> arg0)
     {
+        _buttonUICombos[0].itemGUIs.enabled = true;
         UIHandler.Instance.ShowUI("Customization");
         EventManager.Instance.TriggerEvent(Events.RepositionCamera, new Dictionary<string, object> { { "State", CamPositionManager.CamState.Customize } });
     }

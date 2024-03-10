@@ -1189,6 +1189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2145842201061595360, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3202093883465997570, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
       propertyPath: m_fontColor.b
       value: 0
@@ -1209,6 +1213,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 54.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5023687359758037918, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5181885332370739660, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
       propertyPath: m_text
       value: Total Claims
@@ -1217,6 +1225,10 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 37
       objectReference: {fileID: 0}
+    - target: {fileID: 5905317215821749945, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6380933320504965178, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
       propertyPath: m_text
       value: '"Accident"'
@@ -1224,6 +1236,14 @@ PrefabInstance:
     - target: {fileID: 6380933320504965178, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
       propertyPath: m_fontStyle
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455082957973152421, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118179809944461939, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7321279166853635608, guid: d1be0ab3ef9d2914b82163f156d36b9d, type: 3}
       propertyPath: m_Pivot.x
