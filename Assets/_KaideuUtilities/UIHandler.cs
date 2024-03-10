@@ -62,6 +62,8 @@ namespace Kaideu.UI
             if (!uiFound)
                 ForcePrevious();
 
+            Debug.LogWarning($"UI Shown: {name}");
+
         }
 
         public void TryShowPrevious()
