@@ -25,7 +25,7 @@ public class ObjectSpawner : Kaideu.Utils.SingletonPattern<ObjectSpawner>
     // Update is called once per frame
     void Update()
     {
-        var canSpawn = !LevelManager.Instance.HasEnded && Time.time >= _nextSpawnTime/Multiplyer && playerRef.position.y > _verticalSpawnDistance * 2;
+        var canSpawn = !LevelManager.Instance.HasEnded && Time.time >= _nextSpawnTime/Multiplyer && playerRef.position.y > LevelManager.Instance.SpawnerStopHeight;
 
         if ((InputManager.Instance.Controls.Player.Interact.WasPressedThisFrame() && debugging)|| ( !debugging && canSpawn && _objs.Length > 0))
         {

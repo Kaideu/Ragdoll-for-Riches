@@ -20,7 +20,8 @@ namespace Kaideu.Events
         Parachute,
         PowerUp,
         PowerUpOver,
-        Impact
+        Impact,
+        Settings
     }
 
     public class EventManager : Utils.SingletonPattern<EventManager>

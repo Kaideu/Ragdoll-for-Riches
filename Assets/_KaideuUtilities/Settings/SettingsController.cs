@@ -12,7 +12,7 @@ namespace Kaideu.Settings {
     public class SettingsController : Utils.SingletonPattern<SettingsController>
     {
         [Header("Audio")]
-        //Audio
+        [SerializeField] private bool hasAudio = false;
         [SerializeField] private AudioMixer soundMixer;
         [SerializeField] private Slider masterVolumeSlider;
         [SerializeField] private Slider musicSlider;
@@ -22,17 +22,20 @@ namespace Kaideu.Settings {
         [SerializeField] private Toggle sfxToggle;
         [Space(20)]
         [Header("Gameplay")]
+        [SerializeField] private bool hasGameplay = false;
         [SerializeField] private Slider mouseSensitivitySlider;
         [SerializeField] private Slider mouseSmoothingSlider;
         [SerializeField] private Slider fovSlider;
         [SerializeField] private Toggle fpsCounterEnabled;
         [Header("Graphics")]
+        [SerializeField] private bool hasGraphics = false;
         [SerializeField] private Vector2Int[] _resolutionOptions;
         [SerializeField] private TMP_Dropdown resolutionDropdown;
         [SerializeField] private TMP_Dropdown qualityDropdown;
         [SerializeField] private QualityData[] _qualityOptions;
         [SerializeField] private Toggle fullScreenToggle;
         [Header("Accessibility")]
+        [SerializeField] private bool hasAccessibility = false;
         [SerializeField] private TMP_Dropdown languageDropdown;
 
         private AudioSettings currentAudioSettings => SettingsDataHandler.AudioSetting;
@@ -42,26 +45,31 @@ namespace Kaideu.Settings {
 
         private bool initialized;
 
-
-        private void Start()
-        {
-            InitializeAudio();
-            InitializeGraphics();
-            InitializeGameplay();
-            InitializeAccessibility();
-            initialized = true;
-        }
-
         
         void OnEnable()
         {
-            LocalizationSettings.SelectedLocaleChanged += SelectedLocaleChanged;
+            //LocalizationSettings.SelectedLocaleChanged += SelectedLocaleChanged;
         }
         void OnDisable()
         {
-            LocalizationSettings.SelectedLocaleChanged -= SelectedLocaleChanged;
+            //LocalizationSettings.SelectedLocaleChanged -= SelectedLocaleChanged;
 
             CancelInvoke();
+        }
+
+        private void Start()
+        {
+            SettingsDataHandler.LoadSettings();
+
+            if (hasAudio)
+                InitializeAudio();
+            if (hasGraphics)
+                InitializeGraphics();
+            if (hasGameplay)
+                InitializeGameplay();
+            if (hasAccessibility)
+                InitializeAccessibility();
+            initialized = true;
         }
         /**/
 
@@ -89,6 +97,9 @@ namespace Kaideu.Settings {
             soundMixer.SetFloat(AudioSettings.MasterVolumeParameter, Mathf.Log10(value) * 80 + 20);
             masterVolumeSlider.value = value;
             currentAudioSettings.MasterVolume = value;
+
+            if (value != -80)
+                SetMasterToggle(true);
             //SaveAudio();
         }
 
@@ -101,6 +112,9 @@ namespace Kaideu.Settings {
             soundMixer.SetFloat(AudioSettings.MusicVolumeParameter, Mathf.Log10(value) * 20);
             musicSlider.value = value;
             currentAudioSettings.MusicVolume = value;
+
+            if (value != -80)
+                SetMusicToggle(true);
             //SaveAudio();
         }
 
@@ -113,6 +127,9 @@ namespace Kaideu.Settings {
             soundMixer.SetFloat(AudioSettings.SfxVolumeParameter, Mathf.Log10(value) * 20);
             sfxSlider.value = value;
             currentAudioSettings.SfxVolume = value;
+
+            if (value != -80)
+                SetSFXToggle(true);
             //SaveAudio();
         }
 

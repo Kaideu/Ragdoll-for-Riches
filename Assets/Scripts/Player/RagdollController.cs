@@ -83,7 +83,7 @@ public class RagdollController : MonoBehaviour
                 _rb.isKinematic = true;
                 _anim.applyRootMotion = true;
                 _anim.ResetTrigger("Reset");
-                _anim.ResetTrigger("Jump");
+                _anim.ResetTrigger("Jumped");
                 _pm.ResetTerminalVelocity();
                 break;
             case RagdollAnimState.Falling:

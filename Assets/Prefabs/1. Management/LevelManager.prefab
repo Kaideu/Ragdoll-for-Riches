@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1561344629937274931}
-  - component: {fileID: 9090566785025171666}
   - component: {fileID: 8147033369701966886}
   - component: {fileID: 340168392618764466}
+  - component: {fileID: 9090566785025171666}
+  - component: {fileID: 7988751020677319493}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -34,29 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9090566785025171666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839723983273801884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4970546de1ea7ca46b07b8e4fedad0a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugging: 0
-  _objs:
-  - {fileID: 1416722638032424, guid: 93df257019f5c1a42aec13e221abe51f, type: 3}
-  - {fileID: 1174532382986712, guid: fe4e14b3321f2a74491656ace505b8d0, type: 3}
-  - {fileID: 1475137749187476, guid: d1393e279c77e044cb6df9694d329eb7, type: 3}
-  - {fileID: 1588381071799560, guid: db5e1ffe6760d614c8e2ef2894ef5d8a, type: 3}
-  - {fileID: 1154607073066192, guid: 91d9ece43f62e5a4f8c1c20712e8fa16, type: 3}
-  - {fileID: 1029301884381818, guid: bf6a79076de32e647ad1b0aa2cf468c7, type: 3}
-  _verticalSpawnDistance: 25
-  _horizontalSpawnDistRange: {x: 0, y: 4}
-  _spawnTimeRange: {x: 0.5, y: 2}
 --- !u!114 &8147033369701966886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,3 +67,51 @@ MonoBehaviour:
   doesPersist: 1
   _currentBalance: 0
   _collectedBalance: 0
+  Multiplyer: 1
+--- !u!114 &9090566785025171666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839723983273801884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4970546de1ea7ca46b07b8e4fedad0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doesPersist: 0
+  debugging: 0
+  _objs:
+  - {fileID: 1416722638032424, guid: 93df257019f5c1a42aec13e221abe51f, type: 3}
+  - {fileID: 1174532382986712, guid: fe4e14b3321f2a74491656ace505b8d0, type: 3}
+  - {fileID: 1475137749187476, guid: d1393e279c77e044cb6df9694d329eb7, type: 3}
+  - {fileID: 1588381071799560, guid: db5e1ffe6760d614c8e2ef2894ef5d8a, type: 3}
+  - {fileID: 1154607073066192, guid: 91d9ece43f62e5a4f8c1c20712e8fa16, type: 3}
+  - {fileID: 1029301884381818, guid: bf6a79076de32e647ad1b0aa2cf468c7, type: 3}
+  _verticalSpawnDistance: 25
+  _horizontalSpawnDistRange: {x: 0, y: 4}
+  _spawnTimeRange: {x: 0.5, y: 2}
+  Multiplyer: 1
+--- !u!114 &7988751020677319493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839723983273801884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71937b491493414f98a4d854dc8d682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doesPersist: 0
+  debugging: 0
+  _objs:
+  - {fileID: 8426795047478743605, guid: 51d1dd18397f4704e889f50746f59fa9, type: 3}
+  - {fileID: 1557776271351080854, guid: a8775078fb03a4d4799e3a9dc740eec8, type: 3}
+  - {fileID: 8391328186152990769, guid: 8cc323712aacfa34eb5fedc7e65966bd, type: 3}
+  _verticalSpawnDistance: 25
+  _horizontalSpawnDistRange: {x: 0, y: 4}
+  _spawnTimeRange: {x: 0.5, y: 20}
+  ps: {fileID: 0}

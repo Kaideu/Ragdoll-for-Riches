@@ -11,7 +11,8 @@ public class CamPositionManager : MonoBehaviour
         None,
         MainMenu,
         Falling,
-        Customize
+        Customize,
+        Settings
     }
 
     [Serializable]
@@ -82,8 +83,38 @@ public class CamPositionManager : MonoBehaviour
 
     private void SetPlay(Dictionary<string, object> arg0) => SetState(CamState.Falling);
 
-    private void SetCamState(Dictionary<string, object> arg0) => SetState((CamState)arg0["State"]);
-
+    private void SetCamState(Dictionary<string, object> arg0)
+    {
+        var state = (CamState)arg0["State"];
+        SetState(state);
+        object obj;
+        Transform target;
+        if (arg0.TryGetValue("Target", out obj))
+        {
+            target = (Transform)obj;
+            _vc.Follow = target;
+            _vc.LookAt = target;
+        }
+        else
+        {
+            _vc.Follow = LevelManager.Instance.Player.transform;
+            _vc.LookAt = LevelManager.Instance.Player.transform;
+        }
+        /*
+        switch (state)
+        {
+            case CamState.Settings:
+                var temp = ((GameObject)arg0["Target"]).transform;
+                _vc.Follow = temp.transform;
+                _vc.LookAt = temp.transform;
+                break;
+            default:
+                _vc.Follow = LevelManager.Instance.Player.transform;
+                _vc.LookAt = LevelManager.Instance.Player.transform;
+                break;
+        }
+        /**/
+    }
     private void SetState(CamState state)
     {
         _lastSettings = _currentSettings;

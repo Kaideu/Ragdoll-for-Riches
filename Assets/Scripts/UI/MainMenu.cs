@@ -45,5 +45,10 @@ public class MainMenu : MonoBehaviour
         EventManager.Instance.TriggerEvent(Events.Customization, null);
     }
 
+    public void Settings()
+    {
+        EventManager.Instance.TriggerEvent(Events.Settings, null);
+    }
+
 
 }

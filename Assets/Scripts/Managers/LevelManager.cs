@@ -15,16 +15,14 @@ public class LevelManager : Kaideu.Utils.SingletonPattern<LevelManager>
     Cinemachine.CinemachineVirtualCamera _cmvc;
     [SerializeField]
     float _minParachuteHeight = 50;
-    public float MinParachuteHeight => _minParachuteHeight;
+    [SerializeField]
+    float spawnerStopHeight = 150;
 
     bool hinted = false;
     bool hasEnded = true;
     public bool HasEnded => hasEnded;
-
-    //[Header("CinemachineSettings")]
-    //[SerializeField]
-
-
+    public float MinParachuteHeight => _minParachuteHeight;
+    public float SpawnerStopHeight => spawnerStopHeight;
 
     private GameObject _player;
     public GameObject Player
@@ -47,15 +45,14 @@ public class LevelManager : Kaideu.Utils.SingletonPattern<LevelManager>
     }
     private void Start()
     {
-
         Player.transform.position = _startPosition.position;
+        EventManager.Instance.TriggerEvent(Events.MainMenu, null);
+    }
+
+    public void SetPlayerCam(Dictionary<string, object> arg0)
+    {
         _cmvc.Follow = Player.transform;
         _cmvc.LookAt = Player.transform;
-        Debug.Log(_cmvc.transform.position);
-        Debug.Log(Player.transform.position);
-        EventManager.Instance.TriggerEvent(Events.MainMenu, null);
-
-
     }
 
     private void EndLevel(Dictionary<string, object> arg0)
