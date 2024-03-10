@@ -18,7 +18,7 @@ public class Obstacle : MonoBehaviour
         _rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
         var dir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         print(dir);
-        _rb.AddTorque(dir * 100, ForceMode.Impulse);
+        _rb.AddTorque(dir * Random.Range(10, 100), ForceMode.Impulse);
     }
 
     void Update()
