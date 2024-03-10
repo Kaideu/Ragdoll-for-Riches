@@ -5,6 +5,7 @@ using Kaideu.UI;
 using Kaideu.Events;
 using System;
 using UnityEngine.UI;
+using TMPro;
 
 public class CustomizationCanvas : MonoBehaviour
 {
@@ -20,14 +21,19 @@ public class CustomizationCanvas : MonoBehaviour
 
     [SerializeField]
     ButtonUICombo[] _buttonUICombos;
+    [SerializeField]
+    TextMeshProUGUI _bankAmount;
 
     private void OnEnable()
     {
         Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.Customization, ShowSelf);
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.BankUpdate, updateBankText);
     }
+
     private void OnDisable()
     {
         Kaideu.Events.EventManager.Instance.StopListening(Kaideu.Events.Events.Customization, ShowSelf);
+        Kaideu.Events.EventManager.Instance.StartListening(Kaideu.Events.Events.BankUpdate, updateBankText);
     }
 
     private void Start()
@@ -63,5 +69,10 @@ public class CustomizationCanvas : MonoBehaviour
             _buttonUICombos[i].itemGUIs.enabled = (i == index);
             _buttonUICombos[i].enableButton.interactable = !(i == index);
         }
+    }
+
+    private void updateBankText(Dictionary<string, object> arg0)
+    {
+        _bankAmount.text = $"${arg0["Balance"]}";
     }
 }

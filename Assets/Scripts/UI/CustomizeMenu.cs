@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public class Item
@@ -45,6 +46,7 @@ public class CustomizeMenu : MonoBehaviour
     [SerializeField] private Button BuyBtn;
     [SerializeField] private Button EquipBtn;
     [SerializeField] public int currItemIndex;
+    [SerializeField] TextMeshProUGUI _cost;
 
     public event Action<Item> OnItemChanged;
 
@@ -80,10 +82,15 @@ public class CustomizeMenu : MonoBehaviour
         RefreshUI();
     }
 
-    void RefreshUI()
+    public void RefreshUI()
     {
+        _cost.text = "";
         if (items[currItemIndex].purchased) BuyBtn.gameObject.SetActive(false);
-        else BuyBtn.gameObject.SetActive(true);
+        else
+        {
+            BuyBtn.gameObject.SetActive(true);
+            _cost.text = $"${items[currItemIndex].value}";
+        }
         if (items[currItemIndex].equipped || !items[currItemIndex].purchased) EquipBtn.gameObject.SetActive(false);
         else EquipBtn.gameObject.SetActive(true);
     }
