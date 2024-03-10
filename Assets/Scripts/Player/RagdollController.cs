@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Kaideu.Physics;
+using Kaideu.Events;
 
 public class RagdollController : MonoBehaviour
 {
@@ -159,6 +160,7 @@ public class RagdollController : MonoBehaviour
 
         if (Kaideu.Input.InputManager.Instance.Controls.Player.Space.WasPressedThisFrame() && transform.position.y < LevelManager.Instance.MinParachuteHeight)
         {
+            EventManager.Instance.TriggerEvent(Events.Parachute, null);
             _pm.SetTerminalVelocity(4);
         }
     }

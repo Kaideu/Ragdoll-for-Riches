@@ -16,7 +16,8 @@ namespace Kaideu.Events
         BankUpdate,
         MainMenu,
         RepositionCamera,
-        Customization
+        Customization,
+        Parachute
     }
 
     public class EventManager : Utils.SingletonPattern<EventManager>
