@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Kaideu.Events;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
+//using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 public class AddMoney : MonoBehaviour
 {

@@ -47,15 +47,18 @@ public class CamPositionManager : MonoBehaviour
 
     float lerpTime = 0;
     float startTime;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         _camSettingsDict = new();
         foreach (CamSettings cs in _camSettingsList)
         {
             _camSettingsDict.Add(cs.state, cs);
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
 
         _tp = _vc.GetCinemachineComponent<CinemachineTransposer>();
         _cp = _vc.GetCinemachineComponent<CinemachineComposer>();
