@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Kaideu.Physics;
+using Kaideu.Events;
 using UnityEngine;
 
 public class PowerUp : MonoBehaviour
@@ -28,29 +29,35 @@ public class PowerUp : MonoBehaviour
         }
     }
 
+    private void OnEnable() {
+    }
     public void SlowObjects(){
         ps.SetTerminalVelocity(ps.MaxTV/2);
         
-        Debug.Log(powers);
-        StartCoroutine(PowerUpSpawner.Instance.CountSec(powers));
+        // Debug.Log(powers);
+        PowerUpSpawner.Instance.StartTimer(powers);
+        PUIconManager.Instance.ShowIcon(powers);
     }
     public void ClaimDouble(){
         MoneyManager.Instance.Multiplyer = 2;
-        Debug.Log(powers);
-        StartCoroutine(PowerUpSpawner.Instance.CountSec(powers));
+        // Debug.Log(powers);
+        PowerUpSpawner.Instance.StartTimer(powers);
+        PUIconManager.Instance.ShowIcon(powers);
     }
     public void SpawnDouble(){
         ObjectSpawner.Instance.Multiplyer = 2;
-        Debug.Log(powers);
-        StartCoroutine(PowerUpSpawner.Instance.CountSec(powers));
+        // Debug.Log(powers);
+        PowerUpSpawner.Instance.StartTimer(powers);
+        PUIconManager.Instance.ShowIcon(powers);
     }
 
     private void OnTriggerEnter(Collider other){
         if (Kaideu.Utils.Helpers.IsInLayerMask(player, other.gameObject.layer)){
             PowerUpSwitch(powers);
+            EventManager.Instance.TriggerEvent(Events.PowerUp, null);
         }
         else{
-            Debug.LogError("Error On Impact");
+            // Debug.LogError("Error On Impact");
         }
         Destroy(gameObject);
     }

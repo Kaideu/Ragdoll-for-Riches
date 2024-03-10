@@ -17,7 +17,10 @@ namespace Kaideu.Events
         MainMenu,
         RepositionCamera,
         Customization,
-        Parachute
+        Parachute,
+        PowerUp,
+        PowerUpOver,
+        Impact
     }
 
     public class EventManager : Utils.SingletonPattern<EventManager>

@@ -19,13 +19,13 @@ public class ObjectSpawner : Kaideu.Utils.SingletonPattern<ObjectSpawner>
     Transform playerRef => LevelManager.Instance.Player.transform;
 
     float _nextSpawnTime;
-    public int Multiplyer = 0;
+    public float Multiplyer = 1f;
 
 
     // Update is called once per frame
     void Update()
     {
-        var canSpawn = !LevelManager.Instance.HasEnded && Time.time >= _nextSpawnTime && playerRef.position.y > _verticalSpawnDistance * 2;
+        var canSpawn = !LevelManager.Instance.HasEnded && Time.time >= _nextSpawnTime/Multiplyer && playerRef.position.y > _verticalSpawnDistance * 2;
 
         if ((InputManager.Instance.Controls.Player.Interact.WasPressedThisFrame() && debugging)|| ( !debugging && canSpawn && _objs.Length > 0))
         {

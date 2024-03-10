@@ -11,7 +11,7 @@ public class MoneyManager : Kaideu.Utils.SingletonPattern<MoneyManager>
     public int _currentBalance = 0;
     public int _collectedBalance = 0;
     private int collectedBalance;
-    public int Multiplyer = 0;
+    public int Multiplyer = 1;
 
     private void OnEnable()
     {

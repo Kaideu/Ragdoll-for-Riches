@@ -4,6 +4,7 @@ using UnityEngine;
 using Kaideu.Input;
 using Unity.VisualScripting;
 using Kaideu.Physics;
+using Kaideu.Events;
 
 public class PowerUpSpawner : Kaideu.Utils.SingletonPattern<PowerUpSpawner>
 {
@@ -54,20 +55,25 @@ public class PowerUpSpawner : Kaideu.Utils.SingletonPattern<PowerUpSpawner>
     }
 
     void DetirmineNextSpawnTime() => _nextSpawnTime = Time.time + Random.Range(_spawnTimeRange.x, _spawnTimeRange.y);
-
-    public IEnumerator CountSec(PowerUp.Powers powers){
+    public void StartTimer(PowerUp.Powers power){
+        StartCoroutine(CountSec(power));
+    }
+    public IEnumerator CountSec(PowerUp.Powers power){
+        // Debug.Log("Im Working");
         yield return new WaitForSeconds(5);
-        switch(powers){
+        // Debug.Log("Its Been 5 Seconds");
+        switch(power){
             case PowerUp.Powers.Slow:
             ps.ResetTerminalVelocity();
             break;
             case PowerUp.Powers.ClaimMultiply:
-            MoneyManager.Instance.Multiplyer = 0;
+            MoneyManager.Instance.Multiplyer = 1;
             break;
             case PowerUp.Powers.SpawnMultiply:
-            ObjectSpawner.Instance.Multiplyer = 0;
+            ObjectSpawner.Instance.Multiplyer = 1f;
             break;
         }
+        EventManager.Instance.TriggerEvent(Events.PowerUpOver, null);
         
 
     }
